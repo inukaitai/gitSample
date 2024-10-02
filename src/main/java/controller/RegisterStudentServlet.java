@@ -61,6 +61,7 @@ public class RegisterStudentServlet extends HttpServlet {
 			System.out.println("確認3");
 		} else {
 			System.out.println("確認4");
+			// this is test.
 			/*request.getParameter("./AccountDTO");*/
 			HttpSession session = request.getSession();// セッション情報の取得
 			AccountDTO dto = (AccountDTO) session.getAttribute("Account");// セッションからアカウント情報を取得する
