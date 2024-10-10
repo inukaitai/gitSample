@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,12 +29,11 @@ public class RegisterStudentServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-//		String userId = request.getParameter("userId");
-		//コメントアウトを外したことにより黄色いエラーがでてきた
 		String studentId = request.getParameter("student_id");
 		String studentName = request.getParameter("student_name");
 		System.out.println("確認1" + studentId + studentName);
 		/*String createdAt = request.getParameter("createdAt");*///Date型なので自動で入る？
+		
 		String attendance = request.getParameter("attendance");
 		if (attendance == null || attendance.isEmpty()) {
 			attendance = "";
@@ -61,13 +61,32 @@ public class RegisterStudentServlet extends HttpServlet {
 			System.out.println("確認3");
 		} else {
 			System.out.println("確認4");
-			// this is test.
-			/*request.getParameter("./AccountDTO");*/
-			HttpSession session = request.getSession();// セッション情報の取得
-			AccountDTO dto = (AccountDTO) session.getAttribute("Account");// セッションからアカウント情報を取得する
-			String userId = dto.getUserId();// アカウント情報のユーザIDを取得
-			//名前の重複エラーがでていたので、名前をuserIdからＡｃｃｏｕｎｔＵｓｅｒＩｄへ変更
+			
+			// ６７－７０を、user_idでコンテンツ分けするために付け加え.セッションからログインユーザーの user_id を取得　10/4
+			HttpSession session = request.getSession();
+			AccountDTO account = (AccountDTO) session.getAttribute("Account");
+			String userId = account.getUserId();
 
+			//radio buttonから値を取得するためにつけ加えた処理　10/5
+			//StudentListDAO をインスタンス化
+			StudentListDAO dao = new StudentListDAO();
+			@SuppressWarnings("unchecked")
+			ArrayList<StudentListDTO> studentLists = (ArrayList<StudentListDTO>)session.getAttribute("lists");
+			
+			for(StudentListDTO student : studentLists) {
+				//各学生の出席状況を取得
+				String attendance1 = request.getParameter("attendance_" + student.getId());
+				String condition1 = request.getParameter("status_" + student.getId());
+				String memo1 = request.getParameter("memo_" + student.getId());
+				
+				//出席・健康情報を更新するためDTOに設定
+				student.setAttendance(attendance1);
+				student.setCondition(condition1);
+				student.setMemo(memo1);
+				
+				//DBに反映する更新処理
+				dao.updateAttendanceAndCondition(student);
+			}
 			StudentListDTO sdto = new StudentListDTO();// 新しく生徒情報DTOを作成
 			sdto.setUserId(userId);//ユーザIDもDTOに追加　
 			sdto.setStudentId(studentId);
@@ -77,8 +96,10 @@ public class RegisterStudentServlet extends HttpServlet {
 			sdto.setMemo(memo);
 			new StudentListDAO().insert(sdto);// dao.insertでDBに挿入
 
-			request.getSession().setAttribute("sdto", sdto);
-			System.out.println("確認5");
+			ArrayList<StudentListDTO> lists = new StudentListDAO().selectByUserId(userId); // 既存のお知らせ
+			System.out.println(lists);
+			request.getSession().setAttribute("lists", lists);//セッションスコープに登録することで記録が残る
+			System.out.println(request.getSession().getAttribute("lists"));
 			response.sendRedirect("./studentList.jsp");
 			//登録後に生徒名簿画面へ遷移
 		}

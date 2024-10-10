@@ -97,5 +97,27 @@ public class AnnDAO {
 		return result;
 	}
 	
-
+	public int deleteById(int id) {
+		conn = null;
+		int result = 0;
+		try {
+			conn = DBConnection.getConnection();
+			String sql = "DELETE FROM ann WHERE id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			result = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
 }

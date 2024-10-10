@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+body{
+	background-image: url('../img/sky.jpg'); /* 背景画像 */
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* ページをスクロールしても背景を固定 */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.platform-title {
+	border-radius: 15px;
+	margin-top: 20px; /* 上部に余白を追加 */
+  	margin-left: 20px; /* 左側に余白を追加 */
+	padding: 10px; /* 内側の余白を追加 */
+	border: 1px solid blue; /* 青い枠を追加 */
+	display: inline-block; /* タイトル周りだけ枠を表示 */
+	background-color: lightcyan; /* 背景色を追加 */
+	font-size:1.5rem;/* タイトルを少し大きく */
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 高さを100%に設定 */
+    padding: 20px; /* 画面端との余白を確保 */
+}
+
+   
+.login-container {
+	background-color: rgba(0, 0, 0, 0.50); /* 黒の透明背景 */
+	padding: 2rem;
+	border-radius: 15px;
+	color: white;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 少し影を追加して立体感を出す */
+	max-width: 450px; /* フォーム全体を1.5倍に広げる */
+	width: 100%;
+}
+
+.login-container input {
+	width: 100%; /* 入力フィールドを全幅に */
+    padding: 10px; /* 内側に余白を追加 */
+    font-size: 1.2rem; /* テキストサイズを大きくする */
+	margin-bottom: 1rem;
+	border-radius: 5px; /* 角を丸める */
+    border: 1px solid #ccc; /* 薄い枠線を追加 */
+	
+}
+
+.login-btn {
+	background-color: white; /* 元の色を白に設定 */
+	color: blue; /* 文字色を黒に */
+	font-size: 1.5rem; /* ボタンを大きくするためのフォントサイズ */
+	padding: 0.75rem 1.5rem; /* ボタンのサイズを大きくする */
+	border: 2px solid black; /* 境界線を追加 */
+	border-radius: 10px; /* ボタンの角を丸める */
+	transition: background-color 0.3s ease; /* ホバー時のスムーズな色変化 */
+	cursor: pointer;/* ポインターにカーソルが変わる */
+}
+
+.login-btn:hover {
+	background-color: blue; /* ホバー時に青に変わる */
+	color: white; /* 文字色は白に */
+}
+    
+
+a.text-blue {
+	color: blue;
+}
+
+button a {
+	display: flex; /* フレックスボックスを使用 */
+	align-items: center; /* 縦方向の中央揃え */
+	justify-content: center; /* 横方向の中央揃え */
+	height: 100%; /* ボタン全体に合わせる */
+}

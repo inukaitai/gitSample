@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+body{
+	background-image: url('../img/sky.jpg'); /* 背景画像 */
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* ページをスクロールしても背景を固定 */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.platform-title {
+	border-radius: 15px;
+	margin-top: 20px; /* 上部に余白を追加 */
+  	margin-left: 20px; /* 左側に余白を追加 */
+	padding: 10px; /* 内側の余白を追加 */
+	border: 1px solid blue; /* 青い枠を追加 */
+	display: inline-block; /* タイトル周りだけ枠を表示 */
+	background-color: lightcyan; /* 背景色を追加 */
+}
+
+.login-btn {
+	background-color: white; /* 元の色を白に設定 */
+	color: black; /* 文字色を黒に */
+	font-size: 1.2rem; /* ボタンを大きくするためのフォントサイズ */
+	padding: 0.75rem; /* ボタンのサイズを大きくする */
+	border: 2px solid black; /* 境界線を追加 */
+	border-radius: 10px; /* ボタンの角を丸める */
+	transition: background-color 0.3s ease; /* ホバー時のスムーズな色変化 */
+}
+
+.login-btn:hover {
+	background-color: rgb(114, 252, 213); /* ホバー時に青に変わる */
+	color: white; /* 文字色は白に */
+}
+
+.login-container {
+	background-color: rgba(0, 0, 0, 0.50); /* 黒の透明背景 */
+	padding: 2rem;
+	border-radius: 15px;
+	color: white;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 少し影を追加して立体感を出す */
+}
+
+
+
+

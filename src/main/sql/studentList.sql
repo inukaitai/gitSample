@@ -4,7 +4,7 @@ CREATE TABLE studentList (
 	user_id VARCHAR (30) ,
 	student_id VARCHAR (30) NOT NULL,
 	student_name VARCHAR(30) NOT NULL,
-	createdAt DATE NOT NULL DEFAULT CURRENT_DATE,
+	created_at DATE NOT NULL DEFAULT CURRENT_DATE,
 	attendance VARCHAR (30) ,
 	condition VARCHAR (30) ,
 	memo VARCHAR (255),

@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/*body{*/
+/*	background-image: url('../img/sky.jpg');  背景画像 */
+/*	background-size: cover;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-attachment: fixed;  ページをスクロールしても背景を固定 */
+/*    height: 100vh;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+body{
+	background-image: url('../img/sky.jpg'); /* 背景画像 */
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* ページをスクロールしても背景を固定 */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.platform-title {
+	border-radius: 15px;
+	margin-top: 20px; /* 上部に余白を追加 */
+  	margin-left: 20px; /* 左側に余白を追加 */
+	padding: 10px; /* 内側の余白を追加 */
+	border: 1px solid blue; /* 青い枠を追加 */
+	display: inline-block; /* タイトル周りだけ枠を表示 */
+	background-color: lightcyan; /* 背景色を追加 */
+	font-size:1.5rem;/* タイトルを少し大きく */
+}
+
+.all{
+	width: 90%; /* 画面幅の90%まで広げる */
+    max-width: 1200px; /* 最大幅を1200pxに制限 */
+    margin: 20px auto; /* 上下左右の余白を設定 */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* 背景色を白に、やや透過 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* コンテナに影を追加 */
+    border-radius: 15px; /* 角を丸くする */
+}
+
+.table-background{
+	background-color: rgba(255, 255, 255, 0.8); /* 透けた白背景 (透明度80%) */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 少し立体感を与える影 */
+}
+
+table{
+	width: 100%;
+    border-collapse: collapse;  /*枠線が重ならないようにする */
+}
+
+button{
+	margin-bottom: 20px; /* ボタンとテーブルの間に余白を追加 */
+}

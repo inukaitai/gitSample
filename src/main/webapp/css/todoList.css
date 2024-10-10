@@ -1,0 +1,55 @@
+@charset "UTF-8";
+body{
+	background-image: url('../img/sky.jpg'); /* 背景画像 */
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* ページをスクロールしても背景を固定 */
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center!important;
+    flex-direction: column!important;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 600px; /* コンテナの最大幅を600pxに制限 */
+    margin: auto;
+    text-align: center; /* コンテナ内の要素を中央揃えにする */
+}
+
+.title{
+	color: black; /* ここで黒に設定 */
+}
+form {
+    width: 100%; /* フォーム全体を最大幅に */
+    display: flex;
+    justify-content: center;/* 入力フィールドを中央に配置 */
+}
+
+#input {
+    width: 5cm;
+    height: 2cm;
+    max-width: 500px;  /*大きい画面では500pxまでの幅 */
+    padding: 15px; /* 入力欄のパディングを増やして大きくする */
+    font-size: 1.2rem; /* フォントサイズを大きくする */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center; /* テキストを中央揃え */
+}
+
+.my-4{
+	margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.from-control{
+	display: block;
+	 width: 100%;
+    max-width: 500px;
+    padding: 10px;
+}

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.AnnDAO;
+import dao.StudentListDAO;
 import dto.AccountDTO;
+import dto.StudentListDTO;
 import service.LoginService;
 import validation.MyValidation;
 
@@ -49,28 +52,20 @@ public class LoginController extends HttpServlet {
 		// ここにデータ取得処理を書く
 		session.setAttribute("anns", new AnnDAO().selectAll());//上でログインしたすぐ後で、session.setAttributeでAnnServletで追加した情報を上書きした状態で取得することができる
 		
-		response.sendRedirect("nav.jsp");
+		//５７行目をselectAll()をselectByuserId(userId)；へ変更 10/4
+//		ArrayList<StudentListDTO> studentList = new StudentListDAO().selectAll();
+		ArrayList<StudentListDTO> studentList = new StudentListDAO().selectByUserId(userId);
+		System.out.println("check2");
+		session.setAttribute("lists", studentList);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("nav.jsp");
+		rd.forward(request, response);
+//		response.sendRedirect("nav.jsp");
 	}else {
 		response.sendRedirect("login.jsp");
 	}
 	
-	} 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		request.setCharacterEncoding("UTF-8");
-//		String content = request.getParameter("content");
-//		AnnDTO dto = new AnnDTO();
-//		dto.setContent(content);
-//		AnnDAO dao = new AnnDAO();
-//		dao.insert(dto);
-//		HttpSession session = request.getSession();
-//		session.setAttribute("anns", dto);
-//		response.sendRedirect("ann.jsp");
-//	ArrayList<AnnDTO> announce = new AnnDAO().selectAll(); // 既存のお知らせ
-//	request.setAttribute("announce", announce);
-//	RequestDispatcher rd = request.getRequestDispatcher("ann.jsp");
-//	rd.forward(request, response);
 	}
+} 
+	
 
-}

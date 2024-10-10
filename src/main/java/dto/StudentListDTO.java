@@ -6,6 +6,7 @@ import java.sql.Date;
 public class StudentListDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	private int id;
 	private String userId;
 	private String studentId;
 	private String studentName;
@@ -17,7 +18,8 @@ public class StudentListDTO implements Serializable {
 	public StudentListDTO(){
 	
 }
-	public StudentListDTO(String userId, String studentId, String studentName, Date createdAt, String attendance, String condition, String memo) {
+	public StudentListDTO(int id, String userId, String studentId, String studentName, Date createdAt, String attendance, String condition, String memo) {
+		this.id=id;
 		this.userId = userId;
 		this.studentId = studentId;
 		this.studentName = studentName;
@@ -26,6 +28,12 @@ public class StudentListDTO implements Serializable {
 		this.condition = condition;
 		this.memo = memo;
 		
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getUserId() {
 		return userId;
