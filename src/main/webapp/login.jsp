@@ -23,8 +23,8 @@ pageEncoding="UTF-8"%>
 				<br>
 				<button type="submit" class="btn login-btn w-100 mb-3">ログイン</button><br>
 				<p class="text-white">または</p>
-				<button>
-					<a href="./registerUser.jsp" class="text-decoration-none text-blue">新規登録</a>
+				<button class="button-61">
+					<a href="./registerUser.jsp" class="text-decoration-none text-black">新規登録</a>
 				</button>
 				<c:if test="${not empty errorMsgList}">
 					<div style="color: red;">
